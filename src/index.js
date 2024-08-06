@@ -1,3 +1,8 @@
+addEventListener("fetch", (event) => {
+  event.passThroughOnException();
+  event.respondWith(handleRequest(event.request));
+});
+
 import DOCS from './help.html'
 
 
@@ -10,11 +15,6 @@ if (url.pathname === "/") {
     }
   });
 }
-
-addEventListener("fetch", (event) => {
-  event.passThroughOnException();
-  event.respondWith(handleRequest(event.request));
-});
 
 const dockerHub = "https://registry-1.docker.io";
 
